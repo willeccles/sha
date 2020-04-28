@@ -37,3 +37,6 @@ for x in {1..512}; do
 done
 
 echo "All test passed up to length 512!"
+
+echo "Removing $1.out..."
+rm "$1.out"
