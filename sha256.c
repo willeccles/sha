@@ -122,7 +122,6 @@ int main(int argc, char** argv) {
     // length of m as appended to m
     uint64_t m_bits = strlen(m) * CHAR_BIT;
     
-    // add 8 for the 64-bit int
     size_t m_rem = strlen(m);
     unsigned char chunk[CHUNK_SIZE] = {0};
 
@@ -130,18 +129,12 @@ int main(int argc, char** argv) {
         m_rem -= CHUNK_SIZE;
         strncpy((char*)chunk, m, CHUNK_SIZE);
         processchunk(chunk);
-        m += 64;
+        m += CHUNK_SIZE;
     }
 
     // copy the remaining bit of data into the last chunk
     // doing 512 will fill with 0 if none left
     strncpy((char*)chunk, m, CHUNK_SIZE);
-
-    if (strlen(m) == 64) {
-        for (int i = 0; i < 64; i++) {
-            printf("%02hhX\n", chunk[i]);
-        }
-    }
 
     // we don't need to explicitly zero-pad because the strncpy fills
     // the zeroes after the end of the remaining data
