@@ -134,7 +134,7 @@ static void processchunk(const unsigned char* chunk) {
 int main(int argc, char** argv) {
     if (argc == 1) {
         fprintf(stderr, "usage: %s [message]\n"
-                "     message: the message to compute the SHA-256 hash of\n",
+                "     message: the message to compute the SHA-512 hash of\n",
                 argv[0]);
         return 1;
     }
