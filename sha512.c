@@ -76,14 +76,14 @@ static void processchunk(const unsigned char* chunk) {
     // 80x 64-bit words
     uint64_t w[80] = {0};
     for (int i = 0; i < 16; i++) {
-        w[i] = ((uint64_t)chunk[i*4]) << 56;
-        w[i] |= ((uint64_t)chunk[i*4+1]) << 48;
-        w[i] |= ((uint64_t)chunk[i*4+2]) << 40;
-        w[i] |= ((uint64_t)chunk[i*4+3]) << 32;
-        w[i] |= ((uint64_t)chunk[i*4+4]) << 24;
-        w[i] |= ((uint64_t)chunk[i*4+5]) << 16;
-        w[i] |= ((uint64_t)chunk[i*4+6]) << 8;
-        w[i] |= ((uint64_t)chunk[i*4+7]);
+        w[i]  = ((uint64_t)chunk[i*8]) << 56;
+        w[i] |= ((uint64_t)chunk[i*8+1]) << 48;
+        w[i] |= ((uint64_t)chunk[i*8+2]) << 40;
+        w[i] |= ((uint64_t)chunk[i*8+3]) << 32;
+        w[i] |= ((uint64_t)chunk[i*8+4]) << 24;
+        w[i] |= ((uint64_t)chunk[i*8+5]) << 16;
+        w[i] |= ((uint64_t)chunk[i*8+6]) << 8;
+        w[i] |= ((uint64_t)chunk[i*8+7]);
     }
 
     uint64_t s0, s1;
